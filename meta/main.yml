@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: demokos
+  license: MIT
+  min_ansible_version: 1.4
+
+  platforms:
+  - name: Debian
+    versions:
+    - 9
+  categories:
+  - system
+
+dependencies: []

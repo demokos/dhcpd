@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+option domain-name "{{ dhcpd_default_domain }}";
+option domain-name-servers {{ dhcpd_default_dns }};
+default-lease-time {{ dhcpd_default_lease_time }};
+max-lease-time {{ dhcpd_max_lease_time }};
+authoritative;
+ddns-update-style none;
+log-facility {{ dhcpd_log_facility }};
+option fqdn.no-client-update true;
+deny client-updates;
+get-lease-hostnames true;
+
+
+
+subnet {{ dhcpd_subnet }} netmask {{ dhcpd_netmask }} {
+  range {{ dhcpd_ip_start }} {{ dhcpd_ip_start }};
+  option routers {{ dhcpd_router }};
+}
